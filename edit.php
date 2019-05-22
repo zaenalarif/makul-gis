@@ -86,13 +86,13 @@ if(isset($_POST['submit'])){
                       <div class="form-group">
                         <label for="longtitude" class="control-label col-md-3 col-sm-3 col-xs-12">Longtitude</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="longtitude" class="form-control col-md-7 col-xs-12" type="text" name="longtitude" value="<?= $row['longtitude']?>">
+                          <input id="longtitude" class="form-control col-md-7 col-xs-12" type="text" name="langtitude" value="<?= $row['langtitude']?>">
                         </div>
                       </div>          
                       <div class="form-group">
                         <label for="langtitude" class="control-label col-md-3 col-sm-3 col-xs-12">langtitude</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="langtitude" class="form-control col-md-7 col-xs-12" type="text" name="langtitude" value="<?= $row['langtitude']?>">
+                            <input id="langtitude" class="form-control col-md-7 col-xs-12" type="text" name="longtitude" value="<?= $row['longtitude']?>">
                         </div>
                       </div>             
                       <div class="form-group">

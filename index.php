@@ -1,5 +1,5 @@
 <?php
- require_once('init/index.php');
+require_once('init/index.php');
 
 require_once('view/header.php');
 
@@ -8,7 +8,28 @@ if( isset($_SESSION["nama"])){
   require_once('view/subheader.php');
 }
 ?>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <style>
+     .background{
+       height: 150px;
+       background-image: linear-gradient(to right, #2a1d6b, #40c9c9);
+       
+     }
+     .background > h1 {
+       color: white;
+       text-align: center;
+       font-family: 'Poppins', sans-serif;
+       margin-bottom : 0px;
+
+     }
+     .background > p {
+       margin : 0px;
+       padding: 0px;
+       margin-left: 55px;
+       color: white;
+       font-size: 20px;
+       font-family: 'Poppins', sans-serif;
+     }
       #map {
         height: 550px;  /* The height is 400 pixels */
         width: 100%;  /* The width is the width of the web page */
@@ -26,7 +47,12 @@ if( isset($_SESSION["nama"])){
 
         <!-- page content -->
         <div class="right_col" role="main">
-
+          <div class="background">
+            <h1>SIG Pemetaan Lokasi Tempat Olahraga di akbupaten kudus Kecamatan Kota</h1>
+            <p>Nama : Zainal Arifin</p>
+            <p>NIM  : 201751044</p>
+            <p>Kelas 4B</p>
+          </div>
           <br />
           <div id="map"></div>
           <div id="wrapper-map"></div>
@@ -68,9 +94,9 @@ if( isset($_SESSION["nama"])){
       ?>
 
     function initMap() {
-      var uluru = {lat: -25.363, lng: 131.044};
+      var uluru = {lat: -6.8076941, lng: 110.8405076};
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
+        zoom: 12,
         center: uluru
       });
     
@@ -101,7 +127,6 @@ if( isset($_SESSION["nama"])){
             <img src="upload/${this.gambar}" width="300px" />
             <p >${this.deskripsi}</p>
           </div>
-          
           `);
         infowindow.open(map, this);
         console.log(this);

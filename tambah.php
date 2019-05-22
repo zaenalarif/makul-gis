@@ -84,15 +84,15 @@ if(isset($_POST['tambah'])){
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="longtitude" class="control-label col-md-3 col-sm-3 col-xs-12">Longtitude</label>
+                        <label for="longtitude" class="control-label col-md-3 col-sm-3 col-xs-12">Langtitude</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="longtitude" name="longtitude" class="form-control col-md-7 col-xs-12" type="text" name="longtitude">
+                          <input id="longtitude" name="longtitude" class="form-control col-md-7 col-xs-12" type="text" name="langtitude">
                         </div>
                       </div>          
                       <div class="form-group">
-                        <label for="langtitude" class="control-label col-md-3 col-sm-3 col-xs-12">langtitude</label>
+                        <label for="langtitude" class="control-label col-md-3 col-sm-3 col-xs-12">longtitude</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="langtitude" name="langtitude" class="form-control col-md-7 col-xs-12" type="text" name="langtitude">
+                            <input id="langtitude" name="langtitude" class="form-control col-md-7 col-xs-12" type="text" name="longtitude">
                         </div>
                       </div>             
                       <div class="form-group">
