@@ -7,9 +7,15 @@ $result = getTempatId($id);
 if(isset($_POST['submit'])){
   $nama       = $_POST['nama_tempat'];
   $deskripsi  = $_POST['deskripsi'];
-  $longtitude = $_POST['longtitude'];
-  $langtitude = $_POST['langtitude'];
+  $urlmaps     = $_POST['urlmaps'] ;
 
+  $langlong   = explode("/", $urlmaps);
+  $at         = explode("@", $langlong[6]);
+  $lalo       = explode(",", $at[1]);
+
+  $langtitude = $lalo[0];
+  $longtitude = $lalo[1];
+  
   $dir      = 'upload/';
   $gambar   = $_FILES['gambar']['name'];
   $tmp_name = $_FILES['gambar']['tmp_name'];
@@ -20,7 +26,7 @@ if(isset($_POST['submit'])){
       }
         $fdir = $dir.$gambar;
         move_uploaded_file($tmp_name, $fdir);
-        if(setTempat($nama, $deskripsi, $longtitude, $langtitude, $gambar)){
+        if(setTempat($nama, $deskripsi, $langtitude,$longtitude, $gambar)){
           header('Location: list.php');
         }else{
           die('gagal mengedit data');
@@ -84,17 +90,11 @@ if(isset($_POST['submit'])){
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="longtitude" class="control-label col-md-3 col-sm-3 col-xs-12">Longtitude</label>
+                        <label for="longtitude" class="control-label col-md-3 col-sm-3 col-xs-12">urlmaps</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="longtitude" class="form-control col-md-7 col-xs-12" type="text" name="langtitude" value="<?= $row['langtitude']?>">
+                          <input id="longtitude" class="form-control col-md-7 col-xs-12" type="text" name="urlmaps" value="<?= $row['url']?>">
                         </div>
-                      </div>          
-                      <div class="form-group">
-                        <label for="langtitude" class="control-label col-md-3 col-sm-3 col-xs-12">langtitude</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="langtitude" class="form-control col-md-7 col-xs-12" type="text" name="longtitude" value="<?= $row['longtitude']?>">
-                        </div>
-                      </div>             
+                      </div>                   
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">gambar <span class="required">*</span>
                         </label>

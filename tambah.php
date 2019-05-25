@@ -8,8 +8,14 @@ require_once('init/init.php');
 if(isset($_POST['tambah'])){
   $nama_tempat = $_POST['nama_tempat'];
   $deskripsi   = $_POST['deskripsi']  ;
-  $longtitude  = $_POST['longtitude'] ;
-  $langtitude  = $_POST['langtitude'] ;
+  $urlmaps     = $_POST['urlmaps'] ;
+
+  $langlong   = explode("/", $urlmaps);
+  $at         = explode("@", $langlong[6]);
+  $lalo       = explode(",", $at[1]);
+
+  $langtitude = $lalo[0];
+  $longtitude = $lalo[1];
   
   $dir = 'upload/';
   $gambar   =$_FILES['gambar']['name'];
@@ -21,7 +27,7 @@ if(isset($_POST['tambah'])){
         }
           $fdir = $dir.$gambar;
           move_uploaded_file($temp_name,$fdir);
-            if(tambahtempat($nama_tempat,$deskripsi,$longtitude,$langtitude,$gambar)){
+            if(tambahtempat($nama_tempat,$deskripsi,$longtitude,$langtitude,$gambar,$urlmaps)){
               header('Location: list.php ');
             }else{
               die('gagal');
@@ -84,17 +90,11 @@ if(isset($_POST['tambah'])){
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="longtitude" class="control-label col-md-3 col-sm-3 col-xs-12">Langtitude</label>
+                        <label for="longtitude" class="control-label col-md-3 col-sm-3 col-xs-12">URL maps</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="longtitude" name="longtitude" class="form-control col-md-7 col-xs-12" type="text" name="langtitude">
+                          <input id="longtitude" name="urlmaps" class="form-control col-md-7 col-xs-12" type="text">
                         </div>
                       </div>          
-                      <div class="form-group">
-                        <label for="langtitude" class="control-label col-md-3 col-sm-3 col-xs-12">longtitude</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="langtitude" name="langtitude" class="form-control col-md-7 col-xs-12" type="text" name="longtitude">
-                        </div>
-                      </div>             
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">gambar <span class="required">*</span>
                         </label>

@@ -46,6 +46,7 @@ if( isset($_SESSION["nama"])){
     ?>
 
         <!-- page content -->
+        <a href="login.php" style="width:50%; margin: 0 auto;">Login</a>
         <div class="right_col" role="main">
           <div class="background">
             <h1>SIG Pemetaan Lokasi Tempat Olahraga di akbupaten kudus Kecamatan Kota</h1>

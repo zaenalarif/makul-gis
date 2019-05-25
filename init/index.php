@@ -3,6 +3,8 @@
 
 <?php
 
-session_start();
+if(session_start() === null){
+    session_start();
+}
 
 ?>

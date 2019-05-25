@@ -1,11 +1,11 @@
 <?php
 require_once('db.php');
 
-function tambahtempat($nama_tempat,$deskripsi,$longtitude,$langtitude,$gambar)
+function tambahtempat($nama_tempat,$deskripsi,$longtitude,$langtitude,$gambar,$url)
 {
     global $conn;
 
-    $query  = "INSERT INTO tempat (nama, deskripsi, longtitude, langtitude, gambar) VALUES ('$nama_tempat', '$deskripsi', $longtitude, $langtitude, '$gambar')";
+    $query  = "INSERT INTO tempat (nama, deskripsi, longtitude, langtitude, gambar, url) VALUES ('$nama_tempat', '$deskripsi', $longtitude, $langtitude, '$gambar', '$url')";
     
     if(mysqli_query($conn, $query)){
         return true;
@@ -43,7 +43,7 @@ function setTempat($nama, $deskripsi, $langtitude, $longtitude, $gambar)
 {
     global $conn;
 
-    $query = "UPDATE tempat SET nama='$nama', deskripsi='$deskripsi', longtitude=$longtitude, langtitude=$langtitude, gambar='$gambar'";
+    $query = "UPDATE tempat SET nama='$nama', deskripsi='$deskripsi', longtitude=$longtitude, langtitude=$langtitude, gambar='$gambar', url='$url'";
     if(mysqli_query($conn, $query)){
         return true;
     }else{
