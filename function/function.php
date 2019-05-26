@@ -5,13 +5,13 @@ function tambahtempat($nama_tempat,$deskripsi,$longtitude,$langtitude,$gambar,$u
 {
     global $conn;
 
-    $query  = "INSERT INTO tempat (nama, deskripsi, longtitude, langtitude, gambar, url) VALUES ('$nama_tempat', '$deskripsi', $longtitude, $langtitude, '$gambar', '$url')";
+    $aa = mysqli_escape_string($conn, $url);
+    $query = "INSERT INTO tempat (nama, deskripsi, longtitude, langtitude, gambar, url) VALUES ('$nama_tempat', '$deskripsi', $longtitude, $langtitude, '$gambar', '$aa')";
     
-    if(mysqli_query($conn, $query)){
+    if($result = mysqli_query($conn, $query)){
         return true;
     }else{
-        error_reporting(E_ALL);
-        die($query);
+        return false;
     }
 }
 
@@ -39,15 +39,20 @@ function getTempatId($id)
     }
     
 }
-function setTempat($nama, $deskripsi, $langtitude, $longtitude, $gambar)
+function setTempat($id, $nama, $deskripsi, $langtitude, $longtitude, $gambar = "", $url)
 {
     global $conn;
+    $aa = mysqli_escape_string($conn, $url);
+    if($gambar === ""){
+        $query = "UPDATE tempat SET nama='$nama', deskripsi='$deskripsi', longtitude=$longtitude, langtitude=$langtitude, url='$aa' WHERE id=$id";
+    }else if($gambar !== ""){
+        $query = "UPDATE tempat SET nama='$nama', deskripsi='$deskripsi', longtitude=$longtitude, langtitude=$langtitude, gambar='$gambar', url='$aa' WHERE id=$id";
+    }
 
-    $query = "UPDATE tempat SET nama='$nama', deskripsi='$deskripsi', longtitude=$longtitude, langtitude=$langtitude, gambar='$gambar', url='$url'";
     if(mysqli_query($conn, $query)){
         return true;
     }else{
-        die('gagal mengedit');
+        return false;
     }
 }
 
