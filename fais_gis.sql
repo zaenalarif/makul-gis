@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 27 Bulan Mei 2019 pada 12.02
+-- Waktu pembuatan: 27 Bulan Mei 2019 pada 12.06
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.4
 
@@ -50,6 +50,25 @@ INSERT INTO `tempat` (`id`, `nama`, `deskripsi`, `longtitude`, `langtitude`, `ur
 (35, 'rumah biliard [sumber agung]', 'ksjdlsjfkldjfkljdf', 110.8449087, -6.8128466, 'https://www.google.com/maps/place/6%C2%B048\'46.0%22S+110%C2%B050\'46.2%22E/@-6.8128466,110.8449087,18.04z/data=!4m5!3m4!1s0x0:0x0!8m2!3d-6.8127672!4d110.8461648?hl=en', 'WhatsApp Image 2019-05-25 at 10.55.56 AM.jpeg'),
 (36, 'markas stadium', 'alskalkslaks', 110.8416271, -6.8172159, 'https://www.google.com/maps/place/6%C2%B049\'02.1%22S+110%C2%B050\'30.7%22E/@-6.8172159,110.8416271,20.25z/data=!4m5!3m4!1s0x0:0x0!8m2!3d-6.8172572!4d110.8418523?hl=en', '1558878711_WhatsApp Image 2019-05-25 at 10.56.10 AM.jpeg');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `nama`, `password`) VALUES
+(1, 'admin', 'admin');
+
 --
 -- Indexes for dumped tables
 --
@@ -61,6 +80,12 @@ ALTER TABLE `tempat`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -69,6 +94,12 @@ ALTER TABLE `tempat`
 --
 ALTER TABLE `tempat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
